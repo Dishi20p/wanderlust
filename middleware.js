@@ -40,6 +40,17 @@ const Review = require("../majorpro/models/review.js");
     }
   };
 
+  const validateReview = (req, res, next) => {
+    let error = reviewSchema.validate(req.body);
+    if (error.error) {
+      let errMsg = error.error.details.map((el) => el.message).join(",");
+      throw new ExpressError(400, errMsg);
+    } else {
+      next();
+    }
+  };
+  
+
   module.exports.isReviewAuthor = async (req, res, next)=>{
     let {id, reviewId } = req.params;
     let listing= await Review.findById(reviewId);
