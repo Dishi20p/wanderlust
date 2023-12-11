@@ -1,5 +1,5 @@
 const Listing = require("./models/listing");
-const { listingSchema , } = require("../majorpro/schema.js");
+const { listingSchema , } = require("../schema.js");
 const ExpressError = require("./utlis/ExpressError.js");
 const Review = require("../majorpro/models/review.js");
 
