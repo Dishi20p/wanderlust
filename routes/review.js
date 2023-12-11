@@ -3,8 +3,6 @@ const express = require("express");
 const router = express.Router({ mergeParams: true }); // yaha likhe hai n isse id aayega kyo ki di hamara app.js me hai
 
 const wrapAsync = require("../utlis/wrapAsync.js");
-const ExpressError = require("../utlis/ExpressError.js");
-const { reviewSchema } = require("../schema.js");
 const { isLoggedIn,isReviewAuthor } = require("../middleware.js");
 const reviewController =require("../controller/reviews.js")
 
