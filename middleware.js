@@ -1,6 +1,6 @@
 const Listing = require("./models/listing");
 const { listingSchema , } = require("../majorpro/schema.js");
-const ExpressError = require("./utlis/expressError.js");
+const ExpressError = require("./utlis/ExpressError.js");
 const Review = require("../majorpro/models/review.js");
 
   module.exports.isLoggedIn = (req, res, next) =>{
