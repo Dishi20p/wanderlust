@@ -20,7 +20,7 @@ const User = require("./models/user.js");
 
 const reviewRouter= require("./routes/review.js");
 const listingsRouter = require("./routes/listing.js");
-const userRouter = require("../majorpro/routes/user.js");
+const userRouter = require("./routes/user.js");
 
 const dbURL = process.env.ATLASDB_URL;
 
