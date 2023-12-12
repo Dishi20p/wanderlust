@@ -21,13 +21,17 @@ const Review = require("./models/review.js");
   }
 
   module.exports.isOwner = async (req, res, next)=>{
-    let { id } = req.params;
-    let listing= await Listing.findById(id);
-    if(!listing.owner._id.equals(res.locals.currUser._id)){
-      req.flash("error","Only Owner of listing can do changes");
-      return res.redirect(`/listings/${id}`);
-    }
-    next();
+ try{
+  let { id } = req.params;
+  let listing= await Listing.findById(id);
+  if(!listing.owner._id.equals(res.locals.currUser._id)){
+    req.flash("error","Only Owner of listing can do changes");
+    return res.redirect(`/listings/${id}`);
+  }
+  next();
+ }catch(err){
+  next(new ExpressError(400, "This listing page is not available"));
+ }
   };
   
   module.exports.validateListing = (req, res, next) => {
